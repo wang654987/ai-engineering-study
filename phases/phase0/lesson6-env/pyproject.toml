@@ -1,0 +1,11 @@
+[project]
+name = "lesson6-env"
+version = "0.1.0"
+description = "Lesson 6: Python Environments — pyproject.toml 练习"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["numpy>=1.26", "matplotlib>=3.8"]
+
+[project.optional-dependencies]
+torch = ["torch>=2.3", "torchvision>=0.18"]
+llm = ["openai>=1.50"]
