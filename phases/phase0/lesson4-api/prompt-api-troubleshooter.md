@@ -1,36 +1,36 @@
-# prompt-api-troubleshooter
+# prompt-api-troubleshooter — API 错误诊断速查卡
 
-> Diagnose and fix common AI API errors (auth, rate limits, timeouts)
+> 诊断和修复常见 AI API 错误（鉴权、速率限制、超时）
 > Phase 0 · Lesson 4
 
 ---
 
-## Common errors and fixes
+## 常见错误与修复
 
-| HTTP Code | Error | Cause | Fix |
-|-----------|-------|-------|-----|
-| **401** | Unauthorized | API key wrong or missing | Check env var set + key valid |
-| **403** | Forbidden | Key lacks permission for endpoint/model | Check account access / model availability |
-| **429** | Too Many Requests | Rate limited | Wait and retry, reduce request frequency |
-| **400** | Bad Request | Request body malformed | Check required fields, model name, message format |
-| **500/502/503** | Server Error | Server-side issue | Wait a minute and retry |
-| **Timeout** | Timeout | Request took too long | Reduce `max_tokens` or use streaming |
-| **Connection refused** | Network | Wrong base URL or network issue | Check the endpoint URL |
+| HTTP 状态码 | 错误 | 原因 | 修复 |
+|-------------|------|------|------|
+| **401** | 未授权 | API Key 错误或未传 | 检查环境变量已设置 + Key 有效 |
+| **403** | 禁止访问 | Key 无权限访问该端点/模型 | 检查账户权限 / 模型可用性 |
+| **429** | 请求过多 | 触发速率限制 | 等待后重试，降低请求频率 |
+| **400** | 请求错误 | 请求体格式错误 | 检查必填字段、模型名、消息格式 |
+| **500/502/503** | 服务器错误 | 服务端故障 | 等一分钟重试 |
+| **超时** | 超时 | 请求耗时过长 | 减小 `max_tokens` 或启用流式 |
+| **连接被拒** | 网络 | 错误的 Base URL 或网络问题 | 检查端点 URL |
 
 ---
 
-## Diagnostic steps
+## 诊断步骤
 
-1. **Is the API key set?**
+1. **API Key 设置了吗？**
    ```bash
    echo $DEEPSEEK_API_KEY | head -c 10
    ```
 
-2. **Is the key valid?** Try a minimal request.
+2. **Key 有效吗？** 跑一个最小请求试试。
 
-3. **Is the request format correct?** Compare to the docs.
+3. **请求格式正确吗？** 对照官方文档比对。
 
-4. **Is there a network issue?**
+4. **有没有网络问题？**
    ```bash
    curl -I https://api.deepseek.com
    ```
