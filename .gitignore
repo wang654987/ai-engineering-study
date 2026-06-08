@@ -1,0 +1,40 @@
+    ── Python ──
+    pycache/
+    *.py[cod]
+    *.egg-info/
+    dist/
+    build/
+    .venv*/
+    venv*/
+
+    ── 模型检查点和大文件 ──
+    *.pt
+    *.pth
+    *.bin
+    *.safetensors
+    *.ckpt
+    *.onnx
+    *.gguf
+    *.h5
+    *.keras
+
+    ── 虚拟环境和依赖 ──
+    .env
+    *.env.local
+
+    ── IDE 和系统文件 ──
+    .vscode/
+    .idea/
+    *.swp
+    *.swo
+    *~
+    .DS_Store
+    Thumbs.db
+
+    ── 输出和缓存 ──
+    *.log
+    *.tmp
+    /cache/
+    /output/
+    /runs/
+    /wandb/
